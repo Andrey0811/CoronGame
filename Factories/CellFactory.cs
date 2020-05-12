@@ -8,17 +8,14 @@ namespace CoronGame.Factories
 {
     public class CellFactory
     {
-        public Cell CreateCell(CellTypes type, Point point)
-        {
-            return type switch
+        public static Cell CreateCell(CellTypes type, Point point) =>
+            type switch
             {
                 CellTypes.Rich => new Cell(point, new Size(26, 26), 2, 
-                    ImageParser.Parse(GlobalConstants.RichCellImage),
-                    400),
+                    new GetImage(GlobalConstants.RichCellImagePath).AliveImages, 400),
                 CellTypes.Simple => new Cell(point, new Size(26, 26), 1,
-                    ImageParser.Parse(GlobalConstants.SimpleCellImage), 100),
+                    new GetImage(GlobalConstants.SimpleCellImagePath).AliveImages, 100),
                 _ => throw new ArgumentException()
             };
-        }
     }
 }

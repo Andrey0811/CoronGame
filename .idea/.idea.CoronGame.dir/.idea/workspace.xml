@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ba7f678c-f243-4219-a9db-0ce826a5b26b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Factories/GetImage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Blind/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Blind/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Blind/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Blind/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Bullet/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Bullet/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Bullet/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Bullet/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Rich/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Rich/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Rich/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Rich/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Simple/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Simple/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Simple/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Cell/Simple/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Simple/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Simple/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Simple/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Simple/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Speed/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Speed/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Speed/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Speed/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Tank/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Tank/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Tank/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Enemey/Tank/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Virus/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Virus/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Virus/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/Virus/up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/life.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/GlobalConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/GlobalConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/ImageParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Common/ImageParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoronGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CoronGame.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/BlindBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/BlindBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/BulletBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/BulletBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/CellFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/CellFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/EnemyFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/LifeBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/LifeBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Factories/PlayerBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Factories/PlayerBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/MainLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/MainLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logic/Updater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logic/Updater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maps/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Maps/Map.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Blind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Blind.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Cell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Cell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LifeOne.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LifeOne.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/TestMoveable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/TestMoveable.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SoundProvider/LoopStream.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/Resources.resx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MainWindow.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/Settings.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/Resources.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/BlindBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/PlayerBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/BulletBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/CellFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/EnemyFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/LifeBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/packages.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/App.xaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MainWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/MainLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/LifeOne.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IAward.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IImagable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IFigurable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IMoveable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IGameRenderer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IFreezeable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IGameObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Interfaces/IJump.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Abstract/Moveable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9AECFB6F-6EE1-4BB3-9CEC-F864D8D0E1D7/a1/cc6aee19/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Abstract/Essence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Common/Score.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Common/ImageParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Common/GlobalConstants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/TestMoveable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/TestWalker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/TestEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/TestKeyEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Tests/TestMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/GameRenderer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/CommonLogic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/Updater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/KeyEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Logic/Drawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Maps/FindPathCage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Maps/Map.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Common/Walker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Common/Field.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enums/Act.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enums/EnemyTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enums/MoveDirection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enums/MapCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Enums/CellTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Cell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/Blind.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SoundProvider/SoundPlayers/BeginningPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Factories/GetImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SoundProvider/SoundPlayers/SoundPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SoundProvider/SoundProvider.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/BeginningPlayer.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/Abstract/SoundPlayer.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/LoopStream.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/EatEnemyPlayer.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/PlayerDeathPlayer.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/PlayerMovePlayer.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundProvider.cs" />
+        <option value="$PROJECT_DIR$/Models/Common/Award.cs" />
+        <option value="$PROJECT_DIR$/Models/Enums/Action.cs" />
+        <option value="$PROJECT_DIR$/Models/Interfaces/IJump.cs" />
+        <option value="$PROJECT_DIR$/Logic/Drawer.cs" />
+        <option value="$PROJECT_DIR$/Maps/FindPathCage.cs" />
+        <option value="$PROJECT_DIR$/Models/Enums/Act.cs" />
+        <option value="$PROJECT_DIR$/GameRenderer.cs" />
+        <option value="$PROJECT_DIR$/Logic/GameRenderer.cs" />
+        <option value="$PROJECT_DIR$/Models/Interfaces/IFreezeable.cs" />
+        <option value="$PROJECT_DIR$/Maps/Map.cs" />
+        <option value="$PROJECT_DIR$/Tests/TestEngine.cs" />
+        <option value="$PROJECT_DIR$/Tests/TestWalker.cs" />
+        <option value="$PROJECT_DIR$/Tests/TestMap.cs" />
+        <option value="$PROJECT_DIR$/Logic/CommonLogic.cs" />
+        <option value="$PROJECT_DIR$/Models/Abstract/Essence.cs" />
+        <option value="$PROJECT_DIR$/Models/Abstract/Moveable.cs" />
+        <option value="$PROJECT_DIR$/Models/Common/Score.cs" />
+        <option value="$PROJECT_DIR$/Models/Common/Walker.cs" />
+        <option value="$PROJECT_DIR$/Models/Enums/MapCell.cs" />
+        <option value="$PROJECT_DIR$/Models/Enums/MoveDirection.cs" />
+        <option value="$PROJECT_DIR$/SoundProvider/SoundPlayers/SoundPlayer.cs" />
+        <option value="$PROJECT_DIR$/Tests/TestKeyEvents.cs" />
+        <option value="$PROJECT_DIR$/MainWindow.xaml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Tests/TestMoveable.cs" />
+        <option value="$PROJECT_DIR$/Factories/EnemyFactory.cs" />
+        <option value="$PROJECT_DIR$/Factories/LifeBuilder.cs" />
+        <option value="$PROJECT_DIR$/Factories/CellFactory.cs" />
+        <option value="$PROJECT_DIR$/Factories/GetImage.cs" />
+        <option value="$PROJECT_DIR$/Factories/PlayerBuilder.cs" />
+        <option value="$PROJECT_DIR$/Common/ImageParser.cs" />
+        <option value="$PROJECT_DIR$/Models/Player.cs" />
+        <option value="$PROJECT_DIR$/Models/LifeOne.cs" />
+        <option value="$PROJECT_DIR$/Models/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Models/Cell.cs" />
+        <option value="$PROJECT_DIR$/Models/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Models/Blind.cs" />
+        <option value="$PROJECT_DIR$/Factories/BlindBuilder.cs" />
+        <option value="$PROJECT_DIR$/Factories/BulletBuilder.cs" />
+        <option value="$PROJECT_DIR$/Logic/MainLogic.cs" />
+        <option value="$PROJECT_DIR$/Common/GlobalConstants.cs" />
+        <option value="$PROJECT_DIR$/Logic/Updater.cs" />
+        <option value="$PROJECT_DIR$/Logic/KeyEventArgs.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bUWIkEn8TbghIWmq3AeCV8iP29" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3498452" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3003096" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager">
+    <configuration name="CoronGame" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/CoronGame.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ba7f678c-f243-4219-a9db-0ce826a5b26b" name="Default Changelist" comment="" />
+      <created>1588687077073</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588687077073</updated>
+      <workItem from="1588687095762" duration="1670000" />
+      <workItem from="1588688818910" duration="764000" />
+      <workItem from="1588689621518" duration="980000" />
+      <workItem from="1588690644183" duration="184000" />
+      <workItem from="1588695598499" duration="7756000" />
+      <workItem from="1588703997972" duration="130000" />
+      <workItem from="1588922347118" duration="159000" />
+      <workItem from="1588925487552" duration="7407000" />
+      <workItem from="1588991296322" duration="12129000" />
+      <workItem from="1589192454483" duration="13020000" />
+      <workItem from="1589266332615" duration="13033000" />
+      <workItem from="1589290830121" duration="3928000" />
+      <workItem from="1589294819336" duration="8249000" />
+      <workItem from="1589306613187" duration="589000" />
+      <workItem from="1589307366144" duration="1158000" />
+      <workItem from="1589308599684" duration="1397000" />
+      <workItem from="1589310057686" duration="5226000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="406" height="436" key="DebuggerActiveHint" timestamp="1589316295895">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="406" height="436" key="DebuggerActiveHint/0.40.1366.728@0.40.1366.728" timestamp="1589316295895" />
+    <state width="1323" height="197" key="GridCell.Tab.0.bottom" timestamp="1589316236511">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.0.bottom/0.40.1366.728@0.40.1366.728" timestamp="1589316236511" />
+    <state width="1323" height="197" key="GridCell.Tab.0.center" timestamp="1589316236511">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.0.center/0.40.1366.728@0.40.1366.728" timestamp="1589316236511" />
+    <state width="1323" height="197" key="GridCell.Tab.0.left" timestamp="1589316236511">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.0.left/0.40.1366.728@0.40.1366.728" timestamp="1589316236511" />
+    <state width="1323" height="197" key="GridCell.Tab.0.right" timestamp="1589316236511">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.0.right/0.40.1366.728@0.40.1366.728" timestamp="1589316236511" />
+    <state width="1323" height="197" key="GridCell.Tab.1.bottom" timestamp="1589316247916">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.1.bottom/0.40.1366.728@0.40.1366.728" timestamp="1589316247916" />
+    <state width="1323" height="197" key="GridCell.Tab.1.center" timestamp="1589316247916">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.1.center/0.40.1366.728@0.40.1366.728" timestamp="1589316247916" />
+    <state width="1323" height="197" key="GridCell.Tab.1.left" timestamp="1589316247916">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.1.left/0.40.1366.728@0.40.1366.728" timestamp="1589316247916" />
+    <state width="1323" height="197" key="GridCell.Tab.1.right" timestamp="1589316247916">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.1.right/0.40.1366.728@0.40.1366.728" timestamp="1589316247916" />
+    <state width="1323" height="197" key="GridCell.Tab.2.bottom" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.2.bottom/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.2.center" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.2.center/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.2.left" timestamp="1589316236364">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.2.left/0.40.1366.728@0.40.1366.728" timestamp="1589316236364" />
+    <state width="1323" height="197" key="GridCell.Tab.2.right" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.2.right/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.3.bottom" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.3.bottom/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.3.center" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.3.center/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.3.left" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.3.left/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.3.right" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.3.right/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.4.bottom" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.4.bottom/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.4.center" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.4.center/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.4.left" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.4.left/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state width="1323" height="197" key="GridCell.Tab.4.right" timestamp="1589316236365">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="1323" height="197" key="GridCell.Tab.4.right/0.40.1366.728@0.40.1366.728" timestamp="1589316236365" />
+    <state x="511" y="77" key="RiderGenerateDialog" timestamp="1589268239821">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="511" y="77" key="RiderGenerateDialog/0.40.1366.728@0.40.1366.728" timestamp="1589268239821" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1589316295886">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.40.1366.728@0.40.1366.728" timestamp="1589316295886" />
+    <state x="456" y="277" width="621" height="463" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1589310914867">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="456" y="277" width="621" height="463" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.40.1366.728@0.40.1366.728" timestamp="1589310914867" />
+    <state x="339" y="182" key="run.anything.popup" timestamp="1589004695781">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="339" y="182" key="run.anything.popup/0.40.1366.728@0.40.1366.728" timestamp="1589004695781" />
+  </component>
+</project>

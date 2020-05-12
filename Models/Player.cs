@@ -7,17 +7,13 @@ namespace CoronGame.Models
 {
     public class Player : Essence, IImagable, IFreezable, IKillable, IJump
     {
-        private int tempIndex;
-        private int aliveSpriteIndex;
         //private int dyingSpriteIndex;
-        private readonly Image[][] aliveSprites;
+        private readonly Image[] aliveSprites;
         //private Image[] dyingSprites;
 
-        public Player(Point point, int life, int speed, Image[][] aliveSprites/*, Image[] dyingSprites*/)
+        public Player(Point point, int life, int speed, Image[] aliveSprites/*, Image[] dyingSprites*/)
             : base(point, true, speed)
         {
-            tempIndex = 0;
-            aliveSpriteIndex = 0;
             //dyingSpriteIndex = 0;
             this.aliveSprites = aliveSprites;
             //this.dyingSprites = dyingSprites;
@@ -41,13 +37,10 @@ namespace CoronGame.Models
                 dyingSpriteIndex++;
                 return dyingSprites[i];
             }*/
-
-            if (aliveSpriteIndex % 4 == 0) 
-                tempIndex = aliveSpriteIndex / 4;
-
-            aliveSpriteIndex++;
-            aliveSpriteIndex = aliveSpriteIndex >= 12 ? 0 : aliveSpriteIndex;
-            return aliveSprites[(int)MoveDirection][tempIndex];
+            var temp = aliveSprites[(int) MoveDirection];
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            return aliveSprites[(int)MoveDirection];
         }
 
         public int FreezeTime { get; set; }

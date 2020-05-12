@@ -26,7 +26,14 @@ namespace CoronGame.Models
             JumpHeight = 0;
         }
 
-        public Image GetImage() => image;
+        public Image GetImage()
+        {
+            var temp = image;
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            return temp;
+        }
+
         public int JumpHeight { get; }
         public bool IsJumped { get; }
     }

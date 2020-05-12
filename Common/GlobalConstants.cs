@@ -7,15 +7,14 @@
         
         ///Images File Path
         public const string ClassicMapImage = "/Images/Map/classic.gif";
-        public const string SimpleCellImage = "/Images/Cell/simple.png";
-        public const string RichCellImage = "/Images/Cell/Rich.png";
+        public const string SimpleCellImagePath = "/Images/Cell/Simple/";
+        public const string RichCellImagePath = "/Images/Cell/Rich/";
         public const string TankEnemyImagePath = "/Images/Enemey/Tank/";
         public const string SimpleEnemyImagePath = "/Images/Enemey/Simple/";
         public const string SpeedEnemyImagePath = "/Images/Enemey/Speed/";
-        public const string BlindImage = "/Images/";
-        public const string BulletImage = "/Images/";
-        public const string LifeImage = "/Images/";
+        public const string BlindImagePath = "/Images/Blind/";
+        public const string BulletImagePath = "/Images/Bullet/";
+        public const string LifeImage = "/Images/life.png";
         public const string PlayerAliveImagesPath = "/Images/Virus/";
-        //public const string PlayerDyingImagePath = "/Images/Virus/Dying/";
     }
 }

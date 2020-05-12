@@ -11,26 +11,33 @@ namespace CoronGame.Models
     {
         public MoveDirection Direction { get; }
         
-        private Image image;
+        private Image[] sprites;
         
-        public Bullet(Point point, Size size, int moveSpeed, MoveDirection direction, Image image) 
+        public Bullet(Point point, Size size, int moveSpeed, MoveDirection direction, Image[] sprites) 
             : base(point, size, moveSpeed)
         {
             Direction = direction;
             FreezeTime = 0;
             IsFreeze = false;
-            this.image = image;
+            this.sprites = sprites;
             IsJumped = false;
             JumpHeight = 0;
             Damage = 1;
             Life = 0;
             IsAlive = true;
             CanKill = false;
+            Point = point;
+            Size = size;
+            MoveSpeed = moveSpeed;
         }
 
         public Image GetImage()
         {
-            return image;
+            var temp = sprites[(int) MoveDirection];
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            
+            return temp;
         }
 
         public int FreezeTime { get; set; }

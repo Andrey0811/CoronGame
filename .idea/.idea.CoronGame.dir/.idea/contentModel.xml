@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\0811a\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\0811a\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\0811a\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
+    <e p="E:\Downloads\CoronGame" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="App.config" t="Include" />
+      <e p="App.xaml" t="Include" />
+      <e p="App.xaml.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Common" t="Include">
+        <e p="GlobalConstants.cs" t="Include" />
+        <e p="ImageParser.cs" t="Include" />
+      </e>
+      <e p="CoronGame.csproj" t="IncludeRecursive" />
+      <e p="Factories" t="Include">
+        <e p="BlindBuilder.cs" t="Include" />
+        <e p="BulletBuilder.cs" t="Include" />
+        <e p="CellFactory.cs" t="Include" />
+        <e p="EnemyFactory.cs" t="Include" />
+        <e p="GetImage.cs" t="Include" />
+        <e p="LifeBuilder.cs" t="Include" />
+        <e p="PlayerBuilder.cs" t="Include" />
+      </e>
+      <e p="Images" t="Include">
+        <e p="Blind" t="Include">
+          <e p="down.png" t="Include" />
+          <e p="left.png" t="Include" />
+          <e p="right.png" t="Include" />
+          <e p="up.png" t="Include" />
+        </e>
+        <e p="Bullet" t="Include">
+          <e p="down.png" t="Include" />
+          <e p="left.png" t="Include" />
+          <e p="right.png" t="Include" />
+          <e p="up.png" t="Include" />
+        </e>
+        <e p="Cell" t="Include">
+          <e p="Rich" t="Include">
+            <e p="down.png" t="Include" />
+            <e p="left.png" t="Include" />
+            <e p="right.png" t="Include" />
+            <e p="up.png" t="Include" />
+          </e>
+          <e p="Simple" t="Include">
+            <e p="down.png" t="Include" />
+            <e p="left.png" t="Include" />
+            <e p="right.png" t="Include" />
+            <e p="up.png" t="Include" />
+          </e>
+        </e>
+        <e p="Enemey" t="Include">
+          <e p="Simple" t="Include">
+            <e p="down.png" t="Include" />
+            <e p="left.png" t="Include" />
+            <e p="right.png" t="Include" />
+            <e p="up.png" t="Include" />
+          </e>
+          <e p="Speed" t="Include">
+            <e p="down.png" t="Include" />
+            <e p="left.png" t="Include" />
+            <e p="right.png" t="Include" />
+            <e p="up.png" t="Include" />
+          </e>
+          <e p="Tank" t="Include">
+            <e p="down.png" t="Include" />
+            <e p="left.png" t="Include" />
+            <e p="right.png" t="Include" />
+            <e p="up.png" t="Include" />
+          </e>
+        </e>
+        <e p="life.png" t="Include" />
+        <e p="Map" t="Include">
+          <e p="classic.gif" t="Include" />
+        </e>
+        <e p="Virus" t="Include">
+          <e p="down.png" t="Include" />
+          <e p="left.png" t="Include" />
+          <e p="right.png" t="Include" />
+          <e p="up.png" t="Include" />
+        </e>
+      </e>
+      <e p="Logic" t="Include">
+        <e p="CommonLogic.cs" t="Include" />
+        <e p="Drawer.cs" t="Include" />
+        <e p="GameRenderer.cs" t="Include" />
+        <e p="KeyEventArgs.cs" t="Include" />
+        <e p="MainLogic.cs" t="Include" />
+        <e p="Updater.cs" t="Include" />
+      </e>
+      <e p="MainWindow.xaml" t="Include" />
+      <e p="MainWindow.xaml.cs" t="Include" />
+      <e p="Maps" t="Include">
+        <e p="FindPathCage.cs" t="Include" />
+        <e p="Map.cs" t="Include" />
+      </e>
+      <e p="Models" t="Include">
+        <e p="Abstract" t="Include">
+          <e p="Essence.cs" t="Include" />
+          <e p="Moveable.cs" t="Include" />
+        </e>
+        <e p="Blind.cs" t="Include" />
+        <e p="Bullet.cs" t="Include" />
+        <e p="Cell.cs" t="Include" />
+        <e p="Common" t="Include">
+          <e p="Field.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="Walker.cs" t="Include" />
+        </e>
+        <e p="Enemy.cs" t="Include" />
+        <e p="Enums" t="Include">
+          <e p="Act.cs" t="Include" />
+          <e p="CellTypes.cs" t="Include" />
+          <e p="EnemyTypes.cs" t="Include" />
+          <e p="MapCell.cs" t="Include" />
+          <e p="MoveDirection.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IAward.cs" t="Include" />
+          <e p="IFigurable.cs" t="Include" />
+          <e p="IFreezeable.cs" t="Include" />
+          <e p="IGameObject.cs" t="Include" />
+          <e p="IGameRenderer.cs" t="Include" />
+          <e p="IImagable.cs" t="Include" />
+          <e p="IJump.cs" t="Include" />
+          <e p="IKillable.cs" t="Include" />
+          <e p="IMoveable.cs" t="Include" />
+        </e>
+        <e p="LifeOne.cs" t="Include" />
+        <e p="Player.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="App.g.cs" t="Include" />
+          <e p="CoronGame_Content.g.cs" t="Include" />
+          <e p="MainWindow.g.cs" t="Include" />
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="packages.config" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+        <e p="Resources.Designer.cs" t="Include" />
+        <e p="Resources.resx" t="Include" />
+        <e p="Settings.Designer.cs" t="Include" />
+        <e p="Settings.settings" t="Include" />
+      </e>
+      <e p="README.md" t="Include" />
+      <e p="SoundProvider" t="Include">
+        <e p="LoopStream.cs" t="Include" />
+        <e p="SoundPlayers" t="Include">
+          <e p="BeginningPlayer.cs" t="Include" />
+          <e p="SoundPlayer.cs" t="Include" />
+        </e>
+        <e p="SoundProvider.cs" t="Include" />
+      </e>
+      <e p="Sounds" t="Include">
+        <e p="beginning.wav" t="Include" />
+      </e>
+      <e p="Tests" t="Include">
+        <e p="TestEngine.cs" t="Include" />
+        <e p="TestKeyEvents.cs" t="Include" />
+        <e p="TestMap.cs" t="Include" />
+        <e p="TestMoveable.cs" t="Include" />
+        <e p="TestWalker.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

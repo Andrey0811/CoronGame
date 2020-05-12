@@ -76,7 +76,7 @@ namespace CoronGame.Logic
             }
 
             cells = new List<Cell> {map.InitCell()};
-            //blinds = new List<Blind> {map.InitBlind(map.PlayerStartPoint, MoveDirection.Left)};
+            blinds = new List<Blind> {map.InitBlind(map.PlayerStartPoint, MoveDirection.Left)};
         }
 
         private void StartGame()

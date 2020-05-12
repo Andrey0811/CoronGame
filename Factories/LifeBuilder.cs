@@ -7,9 +7,7 @@ namespace CoronGame.Factories
 {
     public class LifeBuilder
     {
-        private readonly Image image = ImageParser.Parse(GlobalConstants.LifeImage);
-
-        public LifeOne CreatLife(Point point) =>
-            new LifeOne(point, new Size(20, 20), image);
+        public static LifeOne CreatLife(Point point) =>
+            new LifeOne(point, new Size(20, 20), ImageParser.Parse(GlobalConstants.LifeImage));
     }
 }

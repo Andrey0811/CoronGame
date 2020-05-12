@@ -163,9 +163,9 @@ namespace CoronGame.Maps
         public Cell InitCell() =>
             rnd.Next(2) switch
             {
-                0 => cellFactory.CreateCell(CellTypes.Rich, 
+                0 => CellFactory.CreateCell(CellTypes.Rich, 
                     cellStartPoints[rnd.Next(cellStartPoints.Count)]),
-                1 => cellFactory.CreateCell(CellTypes.Simple, 
+                1 => CellFactory.CreateCell(CellTypes.Simple, 
                     cellStartPoints[rnd.Next(cellStartPoints.Count)]),
                 _ => throw new ArgumentException()
             };
@@ -177,24 +177,24 @@ namespace CoronGame.Maps
         {
             return rnd.Next(3) switch
             {
-                0 => playerFactory.CreateEnemy(EnemyTypes.Tank, 
+                0 => EnemyFactory.CreateEnemy(EnemyTypes.Tank, 
                     enemyStartPoints[rnd.Next(enemyStartPoints.Count)]),
-                1 => playerFactory.CreateEnemy(EnemyTypes.Speed, 
+                1 => EnemyFactory.CreateEnemy(EnemyTypes.Speed, 
                     enemyStartPoints[rnd.Next(enemyStartPoints.Count)]),
-                2 => playerFactory.CreateEnemy(EnemyTypes.Simple, 
+                2 => EnemyFactory.CreateEnemy(EnemyTypes.Simple, 
                     enemyStartPoints[rnd.Next(enemyStartPoints.Count)]),
                 _ => throw new ArgumentException()
             };
         }
 
         public Bullet InitBullet(Point point, MoveDirection direction) => 
-            bulletBuilder.CreatBullet(point, direction);
+            BulletBuilder.CreatBullet(point, direction);
 
         public Blind InitBlind(Point point, MoveDirection direction) =>
-            blindBuilder.CreatBullet(point, direction);
+            BlindBuilder.CreatBullet(point, direction);
 
         public LifeOne InitLife(Point point) => 
-            lifeBuilder.CreatLife(point);
+            LifeBuilder.CreatLife(point);
 
         public MoveDirection FindWay(IMoveable obj) =>
             FindPathCage.FindPath(obj, this);

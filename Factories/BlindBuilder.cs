@@ -9,9 +9,11 @@ namespace CoronGame.Factories
 {
     public class BlindBuilder
     {
-        private readonly Image image = ImageParser.Parse(GlobalConstants.BlindImage);
-        
-        public Blind CreatBullet(Point point, MoveDirection direction) => 
-            new Blind(point, new Size(18, 18),  1, direction, image);
+        public static Blind CreatBullet(Point point, MoveDirection direction)
+        {
+            var temp = new GetImage(GlobalConstants.BlindImagePath);
+            return new Blind(point, new Size(18, 18), 1, 
+                direction, temp.AliveImages);
+        }
     }
 }

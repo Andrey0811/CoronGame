@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Windows.Controls;
+using System.Drawing;
 using System.Windows.Media.Imaging;
+using Image = System.Windows.Controls.Image;
 
 namespace CoronGame.Common
 {

@@ -45,7 +45,11 @@ namespace CoronGame.Models
             enemyBounceCount--;
             enemyBounceCount = enemyBounceCount < 0 ? 10 : enemyBounceCount;
             
-            return aliveSprites[(int)MoveDirection];
+            var temp = aliveSprites[(int) MoveDirection];
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            
+            return temp;
         }
 
         public int Award { get; }

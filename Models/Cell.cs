@@ -10,12 +10,12 @@ namespace CoronGame.Models
     {
         private readonly Color color = Colors.Pink;
         private int cellBounceCount;
-        private Image image;
+        private Image[] aliveSprites;
 
-        public Cell(Point point, Size size, int speed, Image image, int award) 
+        public Cell(Point point, Size size, int speed, Image[] aliveSprites, int award) 
             : base(point, size, speed)
         {
-            this.image = image;
+            this.aliveSprites = aliveSprites;
             Award = award;
             IsFreeze = false;
             CanKill = true;
@@ -32,7 +32,12 @@ namespace CoronGame.Models
         {
             cellBounceCount--;
             cellBounceCount = cellBounceCount < 0 ? 10 : cellBounceCount;
-            return image;
+            
+            var temp = aliveSprites[(int) MoveDirection];
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            
+            return temp;
         }
 
         public int FreezeTime { get; set; }

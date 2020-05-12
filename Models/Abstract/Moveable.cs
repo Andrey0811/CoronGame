@@ -38,7 +38,7 @@ namespace CoronGame.Models.Abstract
             Point = new Point(x, y);
         }
 
-        public Size Size { get; }
+        public Size Size { get; set; }
         public Point Point { get; set; }
     }
 }

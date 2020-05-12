@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using CoronGame.Common;
 using CoronGame.Models.Common;
 
 namespace CoronGame.Logic
@@ -16,7 +12,7 @@ namespace CoronGame.Logic
                 UpdatePlayer();
                 UpdateEnemeis();
                 UpdateCells();
-                UpdateBullets();
+                //UpdateBullets();
                 UpdateBlinds();
             }
             else if (nextRoundTimeInterval <= 0)
@@ -34,55 +30,63 @@ namespace CoronGame.Logic
 
         private void UpdateEnemeis()
         {
-            foreach (var enemy in enemies)
+            for (var j = 0; j < enemies.Count; j++)
             {
-                if (enemy.IsFreeze && enemy.Time <= 0) 
-                    enemy.IsFreeze = false;
-                
-                if (enemy.CanKill) { }
+                if (enemies[j].IsFreeze && enemies[j].Time <= 0)
+                    enemies[j].IsFreeze = false;
+                var isHit = HitGameObject(player, enemies[j]);
+
+                if (enemies[j].CanKill)
+                {
+                }
                 else
                 {
-                    if (HitGameObject(player, enemy))
+                    if (isHit)
                     {
                         --player.Life;
                         player.IsAlive = false;
                     }
 
-                    foreach (var blind in blinds.Where(blind => HitGameObject(blind, enemy)))
+                    for (var i = 0; i < blinds.Count; i++)
                     {
-                        blinds.Remove(blind);
-                        enemy.IsFreeze = true;
-                        enemy.Time = enemy.FreezeTime;
+                        if (!HitGameObject(blinds[i], enemies[j]))
+                            continue;
+                        blinds.RemoveAt(i);
+                        enemies[j].IsFreeze = true;
+                        enemies[j].Time = enemies[j].FreezeTime;
                     }
 
-                    /*foreach (var bullet in bullets.Where(bullet => HitGameObject(bullet, enemy)))
+                    for (var i = 0; i < bullets.Count; i++)
                     {
-                        bullets.Remove(bullet);
-                        --enemy.Life;
-                        if (enemy.Life <= 0)
-                            enemies.Remove(enemy);
-                    }*/
+                        if (!HitGameObject(bullets[i], enemies[j]))
+                            continue;
+                        bullets.RemoveAt(i);
+                        --enemies[j].Life;
+                        if (enemies[j].Life <= 0) 
+                            enemies.RemoveAt(j);
+                    }
+
                     var temp = Math.Sqrt(
-                        (player.Point.X - enemy.Point.X) * (player.Point.X - enemy.Point.X)
-                        + (player.Point.Y - enemy.Point.Y) * (player.Point.Y - enemy.Point.Y));
-                    enemy.MoveDirection = temp < minDist
-                        ? GenerateMoveToPlayer(enemy, true)
-                        : GenerateMoveToPlayer(enemy, false);
+                        (player.Point.X - enemies[j].Point.X) * (player.Point.X - enemies[j].Point.X)
+                        + (player.Point.Y - enemies[j].Point.Y) * (player.Point.Y - enemies[j].Point.Y));
+                    enemies[j].MoveDirection = temp < minDist
+                        ? GenerateMoveToPlayer(enemies[j], true)
+                        : GenerateMoveToPlayer(enemies[j], false);
                 }
 
-                if (FindPlayer(enemy))
+                if (FindPlayer(enemies[j]) && !isHit)
                 {
-                    var walker = new Walker(enemy.MoveDirection);
-                    var temp = enemy.Point;
+                    var walker = new Walker(enemies[j].MoveDirection);
+                    var temp = enemies[j].Point;
                     temp.Offset(walker.X, walker.Y);
-                    bullets.Add(map.InitBullet(temp, enemy.MoveDirection));
+                    bullets.Add(map.InitBullet(temp, enemies[j].MoveDirection));
                 }
-                
-                
-                if (!enemy.IsFreeze) 
-                    enemy.MakeMove();
+
+
+                if (!enemies[j].IsFreeze)
+                    enemies[j].MakeMove();
                 else
-                    --enemy.Time;
+                    --enemies[j].Time;
             }
         }
 
@@ -91,12 +95,12 @@ namespace CoronGame.Logic
             if (player.IsFreeze && player.Time <= 0) 
                 player.IsFreeze = false;
             
-            foreach (var blind in blinds.Where(blind => HitGameObject(blind, player)))
+            /*foreach (var blind in blinds.Where(blind => HitGameObject(blind, player)))
             {
                 blinds.Remove(blind);
                 player.IsFreeze = true;
                 player.Time = player.FreezeTime;
-            }
+            }*/
 
             if (!player.IsFreeze)
             {
@@ -107,7 +111,7 @@ namespace CoronGame.Logic
                     player.MakeMove();
             }
             else
-                player.Time--;
+                --player.Time;
         }
 
         private void UpdateCells()
@@ -122,14 +126,15 @@ namespace CoronGame.Logic
                 {
                     if (cell.IsFreeze && cell.Time <= 0) 
                         cell.IsFreeze = false;
-                    
-                    foreach (var blind in blinds.Where(blind => HitGameObject(blind, cell)))
+
+                    for (var i = 0; i < blinds.Count; i++)
                     {
-                        blinds.Remove(blind);
+                        if (!HitGameObject(blinds[i], cell)) continue;
+                        blinds.RemoveAt(i);
                         cell.IsFreeze = true;
                         cell.Time = cell.FreezeTime;
                     }
-                    
+
                     if (HitGameObject(player, cell))
                     {
                         score.Value += cell.Award;
@@ -146,45 +151,52 @@ namespace CoronGame.Logic
                 }
         }
 
-        private void UpdateBullets()
+        /*private void UpdateBullets()
         {
-            foreach (var bullet in bullets)
+            for (var j = 0; j < bullets.Count; j++)
             {
-                if (HitGameObject(player, bullet))
+                if (HitGameObject(player, bullets[j]))
                 {
                     --player.Life;
                     player.IsAlive = false;
-                    bullets.Remove(bullet);
-                    return;
+                    bullets.RemoveAt(j);
+                    continue;
                 }
 
-                foreach (var blind in blinds.Where(blind => HitGameObject(blind, bullet)))
+                var isLoop = false;
+                for (var i = 0; i < blinds.Count; i++)
                 {
-                    bullets.Remove(bullet);
-                    blinds.Remove(blind);
+                    if (!HitGameObject(blinds[i], bullets[j]))
+                        continue;
+                    isLoop = true;
+                    bullets.Remove(bullets[j]);
+                    blinds.RemoveAt(i);
                 }
                 
-                if (map.CanMove(bullet, bullet.MoveDirection))
-                    bullet.MakeMove();
+                if (isLoop) continue;
+
+                if (map.CanMove(bullets[j], bullets[j].MoveDirection))
+                    bullets[j].MakeMove();
                 else
-                    bullets.Remove(bullet);
+                    bullets.RemoveAt(j);
             }
-        }
+        }*/
 
         private void UpdateBlinds()
         {
-            foreach (var blind in blinds)
+            for (var i = 0; i < blinds.Count; i++)
             {
-                if (HitGameObject(player, blind))
+                if (HitGameObject(player, blinds[i]))
                 {
                     player.IsFreeze = true;
-                    blinds.Remove(blind);
+                    blinds.RemoveAt(i);
+                    continue;
                 }
-                
-                if (map.CanMove(blind, blind.MoveDirection))
-                    blind.MakeMove();
+
+                if (map.CanMove(blinds[i], blinds[i].MoveDirection))
+                    blinds[i].MakeMove();
                 else
-                    blinds.Remove(blind);
+                    blinds.Remove(blinds[i]);
             }
         }
     }

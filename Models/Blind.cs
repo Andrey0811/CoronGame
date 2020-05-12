@@ -11,20 +11,23 @@ namespace CoronGame.Models
     {
         public MoveDirection Direction { get; }
 
-        private Image image;
+        private Image[] sprites;
         
-        public Blind(Point point, Size size, int moveSpeed, MoveDirection direction, Image image) 
+        public Blind(Point point, Size size, int moveSpeed, MoveDirection direction, Image[] sprites) 
             : base(point, size, moveSpeed)
         {
             Direction = direction;
             IsFreeze = false;
-            this.image = image;
+            this.sprites = sprites;
             Damage = 0;
             Life = 0;
             IsAlive = true;
             CanKill = false;
             JumpHeight = 0;
             IsJumped = false;
+            Point = point;
+            Size = size;
+            MoveSpeed = moveSpeed;
         }
 
         public int FreezeTime { get; set; }
@@ -33,7 +36,11 @@ namespace CoronGame.Models
         
         public Image GetImage()
         {
-            return image;
+            var temp = sprites[(int) MoveDirection];
+            temp.Height = Size.Height;
+            temp.Width = Size.Width;
+            
+            return temp;
         }
 
         public int Damage { get; }
