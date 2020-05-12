@@ -1,0 +1,7 @@
+.idea
+bin
+obj
+CoronGame.csproj.DotSettings
+Folder.DoSettings.user
+Settings.StyleCop
+.git

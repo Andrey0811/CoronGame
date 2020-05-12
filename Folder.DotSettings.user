@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2047a9df_002D581e_002D451d_002Dbb3e_002Daea06c3f40c9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestKeyEvents" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::996A796F-2AD3-492D-A1FF-FF2CD85C7673::.NETFramework,Version=v4.6.1::CoronGame.Tests.TestKeyEvents&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::996A796F-2AD3-492D-A1FF-FF2CD85C7673::.NETFramework,Version=v4.6.1::CoronGame.Tests.TestMoveable&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::996A796F-2AD3-492D-A1FF-FF2CD85C7673::.NETFramework,Version=v4.6.1::CoronGame.Tests.TestWalker&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
