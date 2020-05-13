@@ -100,7 +100,7 @@ namespace CoronGame.Logic
             beginningTimeInterval--;
             DrawObj();
         }
-        public MoveDirection InvertMoveDirection(MoveDirection direction) =>
+        public static MoveDirection InvertMoveDirection(MoveDirection direction) =>
             direction switch
             {
                 MoveDirection.Down => MoveDirection.Up,
@@ -135,8 +135,8 @@ namespace CoronGame.Logic
                 case Act.Blind:
                     var tempPoint = player.Point;
                     var direction = InvertMoveDirection(player.MoveDirection);
-                    var temp = new Walker(direction);
-                    tempPoint.Offset(temp.X, temp.Y);
+                    var walker = new Walker(direction);
+                    tempPoint.Offset(2 * walker.X, 2 * walker.Y);
                     blinds.Add(map.InitBlind(tempPoint, direction));
                     break;
                 default:

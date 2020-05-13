@@ -9,14 +9,12 @@ namespace CoronGame.Models
 {
     public class Blind : Moveable, IFreezable, IImagable, IKillable, IJump
     {
-        public MoveDirection Direction { get; }
-
         private Image[] sprites;
         
         public Blind(Point point, Size size, int moveSpeed, MoveDirection direction, Image[] sprites) 
             : base(point, size, moveSpeed)
         {
-            Direction = direction;
+            MoveDirection = direction;
             IsFreeze = false;
             this.sprites = sprites;
             Damage = 0;

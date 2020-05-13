@@ -12,7 +12,7 @@ namespace CoronGame.Factories
         public static Bullet CreatBullet(Point point, MoveDirection direction)
         {
             var temp = new GetImage(GlobalConstants.BulletImagePath);
-            return new Bullet(point, new Size(15, 15), 1,
+            return new Bullet(point, new Size(18, 18), 1,
                 direction, temp.AliveImages);
         }
     }

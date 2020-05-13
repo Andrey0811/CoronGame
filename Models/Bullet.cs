@@ -9,14 +9,12 @@ namespace CoronGame.Models
 {
     public class Bullet : Moveable, IImagable, IFreezable, IKillable, IJump
     {
-        public MoveDirection Direction { get; }
-        
         private Image[] sprites;
         
         public Bullet(Point point, Size size, int moveSpeed, MoveDirection direction, Image[] sprites) 
             : base(point, size, moveSpeed)
         {
-            Direction = direction;
+            MoveDirection = direction;
             FreezeTime = 0;
             IsFreeze = false;
             this.sprites = sprites;

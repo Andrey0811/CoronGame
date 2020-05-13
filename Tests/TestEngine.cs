@@ -31,8 +31,8 @@ namespace CoronGame.Tests
         [Test, Order(1)]
         public void CheckInvertMoveDirection()
         {
-            Assert.True(engine.InvertMoveDirection(MoveDirection.Down) == MoveDirection.Up);
-            Assert.True(engine.InvertMoveDirection(MoveDirection.Right) == MoveDirection.Left);
+            Assert.True(Engine.InvertMoveDirection(MoveDirection.Down) == MoveDirection.Up);
+            Assert.True(Engine.InvertMoveDirection(MoveDirection.Right) == MoveDirection.Left);
         }
         
         [Test, Order(2)]

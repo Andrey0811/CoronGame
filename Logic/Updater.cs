@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows;
 using CoronGame.Models.Common;
 
 namespace CoronGame.Logic
@@ -13,7 +14,7 @@ namespace CoronGame.Logic
                 UpdatePlayer();
                 UpdateEnemeis();
                 UpdateCells();
-                //UpdateBullets();
+                UpdateBullets();
                 UpdateBlinds();
             }
             else if (nextRoundTimeInterval <= 0)
@@ -50,20 +51,25 @@ namespace CoronGame.Logic
                         if (!HitGameObject(blinds[i], enemies[j]))
                             continue;
                         blinds.RemoveAt(i);
+                        --i;
                         enemies[j].IsFreeze = true;
                         enemies[j].Time = enemies[j].FreezeTime;
                     }
 
+                    var isDelete = false;
                     for (var i = 0; i < bullets.Count; i++)
                     {
                         if (!HitGameObject(bullets[i], enemies[j]))
                             continue;
                         bullets.RemoveAt(i);
+                        --i;
                         --enemies[j].Life;
-                        if (enemies[j].Life <= 0) 
-                            enemies.RemoveAt(j);
+                        if (enemies[j].Life > 0) continue;
+                        enemies.RemoveAt(j);
+                        isDelete = true;
+                        --j;
                     }
-
+                    if (isDelete) continue;
                     var tempDist = Math.Sqrt(
                         (player.Point.X - enemies[j].Point.X) * (player.Point.X - enemies[j].Point.X)
                         + (player.Point.Y - enemies[j].Point.Y) * (player.Point.Y - enemies[j].Point.Y));
@@ -76,8 +82,9 @@ namespace CoronGame.Logic
                 {
                     var walker = new Walker(enemies[j].MoveDirection);
                     var temp = enemies[j].Point;
-                    temp.Offset(walker.X, walker.Y);
+                    temp.Offset(2 * walker.X, 2 * walker.Y);
                     bullets.Add(map.InitBullet(temp, enemies[j].MoveDirection));
+                    enemies[j].MoveDirection = InvertMoveDirection(enemies[j].MoveDirection);
                 }
 
 
@@ -97,6 +104,7 @@ namespace CoronGame.Logic
             {
                 if (!HitGameObject(blinds[i], player)) continue;
                 blinds.RemoveAt(i);
+                --i;
                 player.IsFreeze = true;
                 player.Time = player.FreezeTime;
             }
@@ -121,34 +129,39 @@ namespace CoronGame.Logic
                     cells.Add(map.InitCell());
             }
             else
-                foreach (var cell in cells)
+                for (var j = 0; j < cells.Count; j++)
                 {
-                    if (cell.IsFreeze && cell.Time <= 0) 
-                        cell.IsFreeze = false;
+                    if (cells[j].IsFreeze && cells[j].Time <= 0)
+                        cells[j].IsFreeze = false;
 
                     for (var i = 0; i < blinds.Count; i++)
                     {
-                        if (!HitGameObject(blinds[i], cell)) continue;
+                        if (!HitGameObject(blinds[i], cells[j])) continue;
                         blinds.RemoveAt(i);
-                        cell.IsFreeze = true;
-                        cell.Time = cell.FreezeTime;
+                        --i;
+                        cells[j].IsFreeze = true;
+                        cells[j].Time = cells[j].FreezeTime;
                     }
 
-                    if (HitGameObject(player, cell))
+                    var isDelete = false;
+                    if (HitGameObject(player, cells[j]))
                     {
-                        score.Value += cell.Award.Value;
-                        currentScoreAward = cell.Award;
-                        currentScoreAward.Point = cell.Point;
-                        cells.Remove(cell);
-                        return;
+                        score.Value += cells[j].Award.Value;
+                        currentScoreAward = cells[j].Award;
+                        currentScoreAward.Point = cells[j].Point;
+                        cells.RemoveAt(j);
+                        --j;
+                        isDelete = true;
                     }
 
-                    cell.MoveDirection = GenerateMoveToPlayer(cell, false);
-                    
-                    if (!cell.IsFreeze)
-                        cell.MakeMove();
+                    if (isDelete) continue;
+
+                    cells[j].MoveDirection = GenerateMoveToPlayer(cells[j], false);
+
+                    if (!cells[j].IsFreeze)
+                        cells[j].MakeMove();
                     else
-                        --cell.Time;
+                        --cells[j].Time;
                 }
         }
 
@@ -162,25 +175,31 @@ namespace CoronGame.Logic
                     --playerLife.CountLife;
                     player.IsAlive = false;
                     bullets.RemoveAt(j);
+                    --j;
                     continue;
                 }
 
-                var isLoop = false;
+                var isDelete = false;
                 for (var i = 0; i < blinds.Count; i++)
                 {
                     if (!HitGameObject(blinds[i], bullets[j]))
                         continue;
-                    isLoop = true;
+                    isDelete = true;
                     bullets.Remove(bullets[j]);
                     blinds.RemoveAt(i);
+                    --j;
+                    --i;
                 }
                 
-                if (isLoop) continue;
+                if (isDelete) continue;
 
                 if (map.CanMove(bullets[j], bullets[j].MoveDirection))
                     bullets[j].MakeMove();
                 else
+                {
                     bullets.RemoveAt(j);
+                    --j;
+                }
             }
         }
 
