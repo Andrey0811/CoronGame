@@ -1,7 +1,9 @@
+using CoronGame.Models.Common;
+
 namespace CoronGame.Models.Interfaces
 {
     public interface IAward
     {
-        int Award { get; }
+        Award Award { get; }
     }
 }

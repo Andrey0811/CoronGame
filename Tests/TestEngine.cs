@@ -1,6 +1,10 @@
-﻿using System.Windows.Controls;
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using CoronGame.Logic;
 using CoronGame.Maps;
+using CoronGame.Models;
+using CoronGame.Models.Enums;
 using NUnit.Framework;
 
 namespace CoronGame.Tests
@@ -8,77 +12,65 @@ namespace CoronGame.Tests
     [TestFixture]
     public class TestEngine
     {
+        private readonly Engine engine = new Engine(new Map(), new Render(new Canvas()));
+        
         [Test, Order(0)]
-        public void CheckIsPlayerHitGameObject()
+        public void CheckIsHitGameObject()
         {
-            
+            engine.player = new Player(new Point(0, 0), 2, 1, new Image[0]);
+            engine.enemies.Add(new Enemy(
+                new Point(1, 0), 1, true, true, 0, new Image[0]));
+            Assert.True(Engine.HitGameObject(engine.enemies.First(), engine.player));
+            engine.enemies.Clear();
+            engine.enemies.Add(new Enemy(
+                new Point(100, 0), 1, true, true, 0, new Image[0]));
+            Assert.False(Engine.HitGameObject(engine.enemies.First(), engine.player));
+            engine.enemies.Clear();
         }
         
         [Test, Order(1)]
-        public void CheckIsEnemyEntryToTheCave()
+        public void CheckInvertMoveDirection()
         {
-            
+            Assert.True(engine.InvertMoveDirection(MoveDirection.Down) == MoveDirection.Up);
+            Assert.True(engine.InvertMoveDirection(MoveDirection.Right) == MoveDirection.Left);
         }
         
         [Test, Order(2)]
         public void CheckGenerateEnemyMove()
         {
-            
+            engine.enemies.Add(new Enemy(
+                new Point(1, 0), 1, true, true, 0, new Image[0]));
+            var temp = engine.GenerateEnemyMove(engine.enemies.First());
+            Assert.True(temp == MoveDirection.Left || temp == MoveDirection.Right);
+            engine.enemies.Clear();
         }
         
         [Test, Order(3)]
         public void CheckGenerateMoveToPlayer()
         {
-            
+            engine.player = new Player(new Point(0, 0), 2, 1, new Image[0])
+            {
+                MoveDirection = MoveDirection.Left
+            };
+            engine.enemies.Add(new Enemy(
+                new Point(1, 0), 1, true, true, 0, new Image[0]));
+            Assert.True(engine.GenerateMoveToPlayer(engine.enemies.First(), true) == MoveDirection.Left);
+            engine.player = new Player(new Point(100, 0), 2, 1, new Image[0]);
+            var temp = engine.GenerateMoveToPlayer(engine.enemies.First(), false);
+            Assert.True(temp == MoveDirection.Left || temp == MoveDirection.Right);
         }
-        
+
         [Test, Order(4)]
-        public void CheckUpdate()
+        public void CheckFindPlayer()
         {
-            
+            engine.player = new Player(new Point(0, 0), 2, 1, new Image[0]);
+            engine.enemies.Add(new Enemy(
+                new Point(1, 0), 1, true, true, 0, new Image[0]));
+            engine.enemies.First().MoveDirection = MoveDirection.Left;
+            Assert.True(engine.FindPlayer(engine.enemies.First()));
+            engine.enemies.First().MoveDirection = MoveDirection.Right;
+            Assert.False(engine.FindPlayer(engine.enemies.First()));
+            engine.enemies.Clear();
         }
-        
-        #region Init
-
-        private static int[,] board =
-        {
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
-            {0, 24, 23, 22, 21, 20, 19, 20, 21, 22, 21, 20, 19, 0,},
-            {0, 23, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 18, 0,},
-            {0, 22, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 17, 0,},
-            {0, 21, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 16, 0,},
-            {0, 20, 19, 18, 17, 16, 15, 14, 13, 12, 13, 14, 15, 16,},
-            {0, 21, 0, 0, 0, 0, 16, 0, 0, 11, 0, 0, 0, 0,},
-            {0, 22, 0, 0, 0, 0, 17, 0, 0, 10, 0, 0, 0, 0,},
-            {0, 23, 22, 21, 20, 19, 18, 0, 0, 9, 8, 7, 6, 0,},
-            {0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 5, 0,},
-            {0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 4, 0,},
-            {0, 0, 0, 0, 0, 0, 14, 0, 0, 6, 5, 4, 3, 2,},
-            {0, 0, 0, 0, 0, 0, 14, 0, 0, 7, 0, 0, 0, -1,},
-            {0, 0, 0, 0, 0, 0, 12, 0, 0, 8, 0, -4, -3, -2,},
-            {18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 0, -5, -4, -3,},
-            {0, 0, 0, 0, 0, 0, 13, 0, 0, 10, 0, -6, -5, -4,},
-            {0, 0, 0, 0, 0, 0, 14, 0, 0, 11, 0, 0, 0, 0,},
-            {0, 0, 0, 0, 0, 0, 15, 0, 0, 12, 13, 14, 15, 16,},
-            {0, 0, 0, 0, 0, 0, 16, 0, 0, 13, 0, 0, 0, 0,},
-            {0, 0, 0, 0, 0, 0, 17, 0, 0, 14, 0, 0, 0, 0,},
-            {0, 23, 22, 21, 20, 19, 18, 17, 16, 15, 16, 17, 18, 0,},
-            {0, 24, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 19, 0,},
-            {0, 25, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 20, 0,},
-            {0, 26, 27, 28, 0, 0, 21, 22, 23, 24, 23, 22, 21, 22,},
-            {0, 0, 0, 29, 0, 0, 22, 0, 0, 25, 0, 0, 0, 0,},
-            {0, 0, 0, 28, 0, 0, 23, 0, 0, 26, 0, 0, 0, 0,},
-            {0, 29, 28, 27, 26, 25, 24, 0, 0, 27, 28, 29, 30, 0,},
-            {0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0,},
-            {0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0,},
-            {0, 32, 33, 34, 35, 36, 37, 38, 37, 36, 35, 34, 33, 34,},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
-        };
-
-        private static Map map = new Map();
-
-        private Engine engine = new Engine(map, new GameRenderer(new Canvas()));
-
-        #endregion
     }
 }

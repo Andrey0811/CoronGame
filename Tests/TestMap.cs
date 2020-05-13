@@ -15,14 +15,14 @@ namespace CoronGame.Tests
         public void CheckStrategyOut()
         {
             var temp = map.InitEnemy();
-            //Assert.True(MoveDirection.Up == map.FindWayOutOfSpawn(temp.FirstOrDefault()));
+            Assert.True(MoveDirection.Up == map.FindWay(temp));
         }
 
         [Test, Order(1)]
         public void CheckStrategyTo()
         {
             var temp = map.InitEnemy();
-            //Assert.True(MoveDirection.Up == map.FindWayToSpawn(temp.FirstOrDefault()));
+            Assert.True(MoveDirection.Up == map.FindWay(temp));
         }
 
         [Test, Order(2)]

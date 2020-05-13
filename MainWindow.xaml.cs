@@ -13,7 +13,7 @@ namespace CoronGame
         {
             InitializeComponent();
             var engine = new Engine(new Map(), 
-                new GameRenderer(GameCanvas));
+                new Render(GameCanvas));
             engine.InitGame();
             engine.DrawObj();
         }

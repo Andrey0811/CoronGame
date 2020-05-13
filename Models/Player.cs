@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using CoronGame.Common;
 using CoronGame.Models.Abstract;
 using CoronGame.Models.Interfaces;
 
@@ -7,16 +8,12 @@ namespace CoronGame.Models
 {
     public class Player : Essence, IImagable, IFreezable, IKillable, IJump
     {
-        //private int dyingSpriteIndex;
         private readonly Image[] aliveSprites;
-        //private Image[] dyingSprites;
 
-        public Player(Point point, int life, int speed, Image[] aliveSprites/*, Image[] dyingSprites*/)
+        public Player(Point point, int life, int speed, Image[] aliveSprites)
             : base(point, true, speed)
         {
-            //dyingSpriteIndex = 0;
             this.aliveSprites = aliveSprites;
-            //this.dyingSprites = dyingSprites;
             MoveSpeed = speed;
             IsFreeze = false;
             Damage = 0;
@@ -29,14 +26,6 @@ namespace CoronGame.Models
 
         public Image GetImage()
         {
-            /*if (!IsAlive)
-            {
-                var i = dyingSpriteIndex / 4;
-                if (i >= 10) 
-                    return dyingSprites[i - 1];
-                dyingSpriteIndex++;
-                return dyingSprites[i];
-            }*/
             var temp = aliveSprites[(int) MoveDirection];
             temp.Height = Size.Height;
             temp.Width = Size.Width;

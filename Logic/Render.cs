@@ -5,11 +5,11 @@ using CoronGame.Models.Interfaces;
 
 namespace CoronGame.Logic
 {
-    public class GameRenderer : IGameRenderer
+    public class Render : IGameRenderer
     {
         private readonly Canvas canvas;
 
-        public GameRenderer(Canvas canvas)
+        public Render(Canvas canvas)
         {
             this.canvas = canvas;
             ParentWindow.KeyDown += HandleKeyDown;

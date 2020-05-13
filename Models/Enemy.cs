@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using CoronGame.Models.Abstract;
+using CoronGame.Models.Common;
 using CoronGame.Models.Interfaces;
 
 namespace CoronGame.Models
@@ -22,7 +23,7 @@ namespace CoronGame.Models
         public Enemy(Point point, int speed, bool canKill, bool isAlive, int award, Image[] aliveSprites)
             : base(point, isAlive, speed)
         {
-            Award = award;
+            Award = new Award(point, award, color);
             this.aliveSprites = aliveSprites;
             CanKill = canKill;
             IsFreeze = false;
@@ -52,7 +53,7 @@ namespace CoronGame.Models
             return temp;
         }
 
-        public int Award { get; }
+        public Award Award { get; }
         public int FreezeTime { get; set; }
         public int Time { get; set; }
         public bool IsFreeze { get; set; }

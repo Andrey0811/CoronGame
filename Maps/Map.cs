@@ -60,9 +60,9 @@ namespace CoronGame.Maps
 
             enemyStartPoints = new List<Point>
             {
-                GetNewPoint(new Point(13, 14)),
-                GetNewPoint(new Point(13, 11)),
-                GetNewPoint(new Point(15, 14))
+                GetNewPoint(new Point(6, 12)),
+                GetNewPoint(new Point(20, 10)),
+                GetNewPoint(new Point(3, 20))
             };
 
             playerFactory = new EnemyFactory();
@@ -215,9 +215,9 @@ namespace CoronGame.Maps
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1},
-                {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1},
-                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1},

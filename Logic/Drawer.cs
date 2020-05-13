@@ -19,6 +19,19 @@ namespace CoronGame.Logic
             RenderCollection(bullets);
             //RenderCollection(lifes);
             Render(player);
+            
+            if (currentScoreAward == null) 
+                return;
+            if (currentScoreAward.IsValid)
+                render.Draw(currentScoreAward.Format(), currentScoreAward.Point, currentScoreAward.Size);
+            else
+                currentScoreAward = null;
+
+            /*for (var i = 0; i < playerLife.CountLife; i++)
+            {
+                playerLife.Point = new Point(map.DistanceBetweenObj + i * 30, playerLife.Point.Y);
+                render.Draw(playerLife.Image, playerLife.Point, playerLife.Size);
+            }*/
         }
 
         private void Render<T>(T obj) where T : IImagable, IGameObject, IJump

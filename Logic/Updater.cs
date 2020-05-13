@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CoronGame.Models.Common;
 
 namespace CoronGame.Logic
@@ -36,14 +37,11 @@ namespace CoronGame.Logic
                     enemies[j].IsFreeze = false;
                 var isHit = HitGameObject(player, enemies[j]);
 
-                if (enemies[j].CanKill)
-                {
-                }
-                else
-                {
+
                     if (isHit)
                     {
                         --player.Life;
+                        --playerLife.CountLife;
                         player.IsAlive = false;
                     }
 
@@ -66,13 +64,13 @@ namespace CoronGame.Logic
                             enemies.RemoveAt(j);
                     }
 
-                    var temp = Math.Sqrt(
+                    var tempDist = Math.Sqrt(
                         (player.Point.X - enemies[j].Point.X) * (player.Point.X - enemies[j].Point.X)
                         + (player.Point.Y - enemies[j].Point.Y) * (player.Point.Y - enemies[j].Point.Y));
-                    enemies[j].MoveDirection = temp < minDist
+                    enemies[j].MoveDirection = tempDist < minDist
                         ? GenerateMoveToPlayer(enemies[j], true)
                         : GenerateMoveToPlayer(enemies[j], false);
-                }
+                
 
                 if (FindPlayer(enemies[j]) && !isHit)
                 {
@@ -94,13 +92,14 @@ namespace CoronGame.Logic
         {
             if (player.IsFreeze && player.Time <= 0) 
                 player.IsFreeze = false;
-            
-            /*foreach (var blind in blinds.Where(blind => HitGameObject(blind, player)))
+
+            for (var i = 0; i < blinds.Count; i++)
             {
-                blinds.Remove(blind);
+                if (!HitGameObject(blinds[i], player)) continue;
+                blinds.RemoveAt(i);
                 player.IsFreeze = true;
                 player.Time = player.FreezeTime;
-            }*/
+            }
 
             if (!player.IsFreeze)
             {
@@ -137,7 +136,9 @@ namespace CoronGame.Logic
 
                     if (HitGameObject(player, cell))
                     {
-                        score.Value += cell.Award;
+                        score.Value += cell.Award.Value;
+                        currentScoreAward = cell.Award;
+                        currentScoreAward.Point = cell.Point;
                         cells.Remove(cell);
                         return;
                     }
@@ -151,13 +152,14 @@ namespace CoronGame.Logic
                 }
         }
 
-        /*private void UpdateBullets()
+        private void UpdateBullets()
         {
             for (var j = 0; j < bullets.Count; j++)
             {
                 if (HitGameObject(player, bullets[j]))
                 {
                     --player.Life;
+                    --playerLife.CountLife;
                     player.IsAlive = false;
                     bullets.RemoveAt(j);
                     continue;
@@ -180,7 +182,7 @@ namespace CoronGame.Logic
                 else
                     bullets.RemoveAt(j);
             }
-        }*/
+        }
 
         private void UpdateBlinds()
         {

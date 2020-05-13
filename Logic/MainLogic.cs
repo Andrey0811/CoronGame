@@ -20,26 +20,30 @@ namespace CoronGame.Logic
         private const int ChanceToSpawnCell = 555;
         private const int TimerLength = 18;
         private const int CollisionDistance = 10;
+        private readonly int minDist = 50;
+        private readonly Random rnd = new Random();
         private readonly Map map;
         private readonly IGameRenderer render;
         private readonly SoundProvider.SoundProvider soundProvider;
-        private Player player;
+        public Player player;
+        private PlayerLife playerLife;
         private Field field;
         private List<Cell> cells;
-        private List<Enemy> enemies;
+        public List<Enemy> enemies;
         private readonly DispatcherTimer timer;
         private bool isGameStarted;
         private MoveDirection playerNextMove;
         private Score score;
         private List<Blind> blinds;
         private List<Bullet> bullets;
-        private List<LifeOne> lifes;
+        //private List<LifeOne> lifes;
+        private Award currentScoreAward;
 
         public Engine(Map map, IGameRenderer render)
         {
             blinds = new List<Blind>();
             bullets = new List<Bullet>();
-            lifes = new List<LifeOne>();
+            //lifes = new List<LifeOne>();
             score = new Score(new Point(map.Size.Width / 2 + 25, 15), 
                 new Size(0, 20));
             this.map = map;
@@ -68,7 +72,10 @@ namespace CoronGame.Logic
             enemies = new List<Enemy> {map.InitEnemy(), map.InitEnemy()};
             
             if (player == null)
+            {
                 player = map.InitPlayer();
+                playerLife = new PlayerLife(player.Life);
+            }
             else
             {
                 player.IsAlive = true;
@@ -76,7 +83,6 @@ namespace CoronGame.Logic
             }
 
             cells = new List<Cell> {map.InitCell()};
-            blinds = new List<Blind> {map.InitBlind(map.PlayerStartPoint, MoveDirection.Left)};
         }
 
         private void StartGame()
@@ -94,9 +100,8 @@ namespace CoronGame.Logic
             beginningTimeInterval--;
             DrawObj();
         }
-        private static MoveDirection InvertMoveDirection(MoveDirection direction)
-        {
-            return direction switch
+        public MoveDirection InvertMoveDirection(MoveDirection direction) =>
+            direction switch
             {
                 MoveDirection.Down => MoveDirection.Up,
                 MoveDirection.Left => MoveDirection.Right,
@@ -104,7 +109,6 @@ namespace CoronGame.Logic
                 MoveDirection.Up => MoveDirection.Down,
                 _ => throw new ArgumentException()
             };
-        }
 
         private void ActionHappened(object sender, KeyEventArgs @event)
         {
@@ -140,7 +144,7 @@ namespace CoronGame.Logic
             }
         }
 
-        private bool FindPlayer(Enemy enemy)
+        public bool FindPlayer(Enemy enemy)
         {
             var walker = new Walker(enemy.MoveDirection);
             var tempPoint = enemy.Point;
@@ -159,6 +163,78 @@ namespace CoronGame.Logic
             }
 
             return false;
+        }
+        
+        public static bool HitGameObject(IGameObject obj1, IGameObject obj2)
+        {
+            var x = Math.Pow(obj1.Point.X - obj2.Point.X, 2);
+            var y = Math.Pow(obj1.Point.Y - obj2.Point.Y, 2);
+            return Math.Sqrt(x + y) < CollisionDistance;
+        }
+
+        public MoveDirection GenerateEnemyMove(IMoveable obj)
+        {
+            var directions = new List<MoveDirection>();
+            if (map.CanMove(obj, MoveDirection.Up) && obj.MoveDirection != MoveDirection.Down)
+                directions.Add(MoveDirection.Up);
+
+            if (map.CanMove(obj, MoveDirection.Down) && obj.MoveDirection != MoveDirection.Up)
+                directions.Add(MoveDirection.Down);
+
+            if (map.CanMove(obj, MoveDirection.Right) && obj.MoveDirection != MoveDirection.Left)
+                directions.Add(MoveDirection.Right);
+
+            if (map.CanMove(obj, MoveDirection.Left) && obj.MoveDirection != MoveDirection.Right)
+                directions.Add(MoveDirection.Left);
+
+            return directions.Count switch
+            {
+                0 => obj.MoveDirection,
+                1 => directions[0],
+                _ => directions[rnd.Next(directions.Count)]
+            };
+        }
+
+        public MoveDirection GenerateMoveToPlayer(IMoveable obj, bool isNear)
+        {
+            var directions = new List<MoveDirection>();
+            if (map.CanMove(obj, MoveDirection.Up)) 
+                directions.Add(MoveDirection.Up);
+
+            if (map.CanMove(obj, MoveDirection.Down)) 
+                directions.Add(MoveDirection.Down);
+
+            if (map.CanMove(obj, MoveDirection.Right)) 
+                directions.Add(MoveDirection.Right);
+
+            if (map.CanMove(obj, MoveDirection.Left)) 
+                directions.Add(MoveDirection.Left);
+
+            var bestDirection = MoveDirection.Up;
+            var exsDistance = double.MaxValue;
+            foreach (var direction in directions)
+            {
+                var move = new Walker(direction);
+                var x = Math.Pow(player.Point.X - (obj.Point.X + move.X), 2);
+                var y = Math.Pow(player.Point.Y - (obj.Point.Y + move.Y), 2);
+                var temp = Math.Sqrt(x + y);
+                if (isNear)
+                {
+                    if (!(temp < exsDistance)) continue;
+                    exsDistance = temp;
+                    bestDirection = direction;
+                }
+                else
+                {
+                    if (!(temp > exsDistance)) continue;
+                    exsDistance = temp;
+                    bestDirection = direction;
+                }
+            }
+
+            return exsDistance < minDist 
+                ? bestDirection 
+                : GenerateEnemyMove(obj);
         }
     }
 }

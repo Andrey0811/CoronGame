@@ -77,9 +77,8 @@
     <Compile Include="Factories\GetImage.cs" />
     <Compile Include="Factories\LifeBuilder.cs" />
     <Compile Include="Factories\PlayerBuilder.cs" />
-    <Compile Include="Logic\CommonLogic.cs" />
     <Compile Include="Logic\Drawer.cs" />
-    <Compile Include="Logic\GameRenderer.cs" />
+    <Compile Include="Logic\Render.cs" />
     <Compile Include="Logic\Updater.cs" />
     <Compile Include="Logic\KeyEventArgs.cs" />
     <Compile Include="Logic\MainLogic.cs" />
@@ -89,6 +88,7 @@
     <Compile Include="Models\Blind.cs" />
     <Compile Include="Models\Bullet.cs" />
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Common\Award.cs" />
     <Compile Include="Models\Common\Score.cs" />
     <Compile Include="Models\Enemy.cs" />
     <Compile Include="Models\Enums\Act.cs" />
@@ -109,6 +109,7 @@
     <Compile Include="Models\Abstract\Essence.cs" />
     <Compile Include="Models\LifeOne.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerLife.cs" />
     <Compile Include="SoundProvider\SoundPlayers\BeginningPlayer.cs" />
     <Compile Include="SoundProvider\LoopStream.cs" />
     <Compile Include="SoundProvider\SoundPlayers\SoundPlayer.cs" />
