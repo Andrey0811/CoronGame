@@ -29,6 +29,7 @@ namespace CoronGame.Models
             IsFreeze = false;
             Damage = 1;
             Life = 3;
+            BulletTime = 15;
         }
 
         public int Damage { get; }
@@ -57,5 +58,9 @@ namespace CoronGame.Models
         public int FreezeTime { get; set; }
         public int Time { get; set; }
         public bool IsFreeze { get; set; }
+        
+        public int TimeBullet { get; set; }
+        
+        public int BulletTime { get; }
     }
 }

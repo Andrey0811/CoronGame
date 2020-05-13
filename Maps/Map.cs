@@ -88,7 +88,10 @@ namespace CoronGame.Maps
                 if (point.X >= Board.GetLength(1)) 
                     point.X = - (point.X - 2 * Board.GetLength(1) + 1);
 
-                if (point.X >= 0) 
+                if (point.Y >= Board.GetLength(0))
+                    return false;
+                
+                if (point.X >= 0 && point.Y >= 0) 
                     return Board[(int)point.Y, (int)point.X] == 1;
                 
                 if (obj is Player)
@@ -134,7 +137,10 @@ namespace CoronGame.Maps
                 if (point.X >= Board.GetLength(1)) 
                     point.X = - (point.X - 2 * Board.GetLength(1) + 1);
 
-                if (point.X >= 0) 
+                if (point.Y >= Board.GetLength(0))
+                    return false;
+                
+                if (point.X >= 0 && point.Y >= 0) 
                     return Board[(int)point.Y, (int)point.X] == 1;
 
                 return false;

@@ -136,8 +136,15 @@ namespace CoronGame.Logic
                     var tempPoint = player.Point;
                     var direction = InvertMoveDirection(player.MoveDirection);
                     var walker = new Walker(direction);
-                    tempPoint.Offset(2 * walker.X, 2 * walker.Y);
-                    blinds.Add(map.InitBlind(tempPoint, direction));
+                    if (map.CanMoveOfPoint(tempPoint, direction) && player.TimeBlind == 0)
+                    {
+                        tempPoint.Offset(2 * walker.X, 2 * walker.Y);
+                        blinds.Add(map.InitBlind(tempPoint, direction));
+                        player.TimeBlind = player.BlindTime;
+                    }
+                    else
+                        --player.TimeBlind;
+
                     break;
                 default:
                     throw new ArgumentException();

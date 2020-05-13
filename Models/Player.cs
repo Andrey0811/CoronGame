@@ -22,6 +22,7 @@ namespace CoronGame.Models
             Life = life;
             IsJumped = false;
             JumpHeight = 0;
+            BlindTime = 15;
         }
 
         public Image GetImage()
@@ -40,5 +41,9 @@ namespace CoronGame.Models
         public bool CanKill { get; set; }
         public int JumpHeight { get; }
         public bool IsJumped { get; }
+        
+        public int TimeBlind { get; set; }
+        
+        public int BlindTime { get; }
     }
 }

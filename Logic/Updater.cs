@@ -39,53 +39,60 @@ namespace CoronGame.Logic
                 var isHit = HitGameObject(player, enemies[j]);
 
 
-                    if (isHit)
-                    {
-                        --player.Life;
-                        --playerLife.CountLife;
-                        player.IsAlive = false;
-                    }
+                if (isHit)
+                {
+                    --player.Life;
+                    --playerLife.CountLife;
+                    player.IsAlive = false;
+                }
 
-                    for (var i = 0; i < blinds.Count; i++)
-                    {
-                        if (!HitGameObject(blinds[i], enemies[j]))
-                            continue;
-                        blinds.RemoveAt(i);
-                        --i;
-                        enemies[j].IsFreeze = true;
-                        enemies[j].Time = enemies[j].FreezeTime;
-                    }
+                for (var i = 0; i < blinds.Count; i++)
+                {
+                    if (!HitGameObject(blinds[i], enemies[j]))
+                        continue;
+                    blinds.RemoveAt(i);
+                    --i;
+                    enemies[j].IsFreeze = true;
+                    enemies[j].Time = enemies[j].FreezeTime;
+                }
 
-                    var isDelete = false;
-                    for (var i = 0; i < bullets.Count; i++)
-                    {
-                        if (!HitGameObject(bullets[i], enemies[j]))
-                            continue;
-                        bullets.RemoveAt(i);
-                        --i;
-                        --enemies[j].Life;
-                        if (enemies[j].Life > 0) continue;
-                        enemies.RemoveAt(j);
-                        isDelete = true;
-                        --j;
-                    }
-                    if (isDelete) continue;
-                    var tempDist = Math.Sqrt(
-                        (player.Point.X - enemies[j].Point.X) * (player.Point.X - enemies[j].Point.X)
-                        + (player.Point.Y - enemies[j].Point.Y) * (player.Point.Y - enemies[j].Point.Y));
-                    enemies[j].MoveDirection = tempDist < minDist
-                        ? GenerateMoveToPlayer(enemies[j], true)
-                        : GenerateMoveToPlayer(enemies[j], false);
-                
+                var isDelete = false;
+                for (var i = 0; i < bullets.Count; i++)
+                {
+                    if (!HitGameObject(bullets[i], enemies[j]))
+                        continue;
+                    bullets.RemoveAt(i);
+                    --i;
+                    --enemies[j].Life;
+                    if (enemies[j].Life > 0) continue;
+                    enemies.RemoveAt(j);
+                    isDelete = true;
+                    --j;
+                }
+
+                if (isDelete) continue;
 
                 if (FindPlayer(enemies[j]) && !isHit)
                 {
                     var walker = new Walker(enemies[j].MoveDirection);
                     var temp = enemies[j].Point;
-                    temp.Offset(2 * walker.X, 2 * walker.Y);
-                    bullets.Add(map.InitBullet(temp, enemies[j].MoveDirection));
-                    enemies[j].MoveDirection = InvertMoveDirection(enemies[j].MoveDirection);
+                    if (map.CanMoveOfPoint(temp, enemies[j].MoveDirection) && enemies[j].TimeBullet == 0)
+                    {
+                        temp.Offset(walker.X, walker.Y);
+                        bullets.Add(map.InitBullet(temp, enemies[j].MoveDirection));
+                        enemies[j].MoveDirection = InvertMoveDirection(enemies[j].MoveDirection);
+                        enemies[j].TimeBullet = enemies[j].BulletTime;
+                    }
+                    else
+                        --enemies[j].TimeBullet;
                 }
+
+                var tempDist = Math.Sqrt(
+                    (player.Point.X - enemies[j].Point.X) * (player.Point.X - enemies[j].Point.X)
+                    + (player.Point.Y - enemies[j].Point.Y) * (player.Point.Y - enemies[j].Point.Y));
+                enemies[j].MoveDirection = tempDist < minDist
+                    ? GenerateMoveToPlayer(enemies[j], true)
+                    : GenerateMoveToPlayer(enemies[j], false);
 
 
                 if (!enemies[j].IsFreeze)
@@ -97,7 +104,7 @@ namespace CoronGame.Logic
 
         private void UpdatePlayer()
         {
-            if (player.IsFreeze && player.Time <= 0) 
+            if (player.IsFreeze && player.Time <= 0)
                 player.IsFreeze = false;
 
             for (var i = 0; i < blinds.Count; i++)
@@ -190,7 +197,7 @@ namespace CoronGame.Logic
                     --j;
                     --i;
                 }
-                
+
                 if (isDelete) continue;
 
                 if (map.CanMove(bullets[j], bullets[j].MoveDirection))
